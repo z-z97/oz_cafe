@@ -101,10 +101,10 @@ Future<void> loginWithFacebook() async {
   }
 
   void goToRegister() {
-    //   _navigationService.navigateToRegisterView();
+       _navigationService.navigateToRegisterView();
   }
 
   void loginWithEmail() {
-    //  _navigationService.navigateToEmailLoginView();
+      _navigationService.navigateToLoginWithEmailView();
   }
 }
