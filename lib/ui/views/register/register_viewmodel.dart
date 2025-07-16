@@ -35,8 +35,12 @@ class RegisterViewModel extends BaseViewModel {
       nameError = "Name is required";
       hasError = true;
     }
+     if(email.isEmpty){
+      nameError = "Email is required";
+      hasError = true;
+     }
 
-    if (email.isNotEmpty || !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
+    if (email.isNotEmpty && !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(email)) {
       emailError = "Invalid email format";
       hasError = true;
     }

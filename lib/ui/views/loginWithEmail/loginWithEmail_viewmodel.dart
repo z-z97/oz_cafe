@@ -45,6 +45,7 @@ final user = await _userService.login(email, password);
 
     if (user != null) {
       _snackbarService.showSnackbar(message: "Welcome, ${user.name} 👋");
+       _navigationService.replaceWithMainNavigationView();
       // navigate to home or dashboard if needed
     } else {
       passwordError = "Invalid credentials ❌";

@@ -3,46 +3,54 @@ import 'package:oz_cofe/model/users.dart';
 
 class DummyUserService {
   UserModel? _loggedInUser;
+  final List<UserModel> _users = [];
 
-  Future<void> init() async {
-    final prefs = await SharedPreferences.getInstance();
-    final name = prefs.getString('user_name');
-    final email = prefs.getString('user_email');
-    final password = prefs.getString('user_password');
-    final tier = prefs.getString('user_tier');
-    final points = prefs.getInt('user_points');
+  List<UserModel> get users => _users;
 
-    if (email != null && password != null) {
-      _loggedInUser = UserModel(
-        name: name ?? '',
-        email: email,
-        password: password,
-        tier: tier ?? 'Gold',
-        points: points ?? 0,
-      );
-    }
+
+Future<void> init() async {
+  final prefs = await SharedPreferences.getInstance();
+  final name = prefs.getString('user_name');
+     await prefs.setString('user_name', "");
+  final email = prefs.getString('user_email');
+  final password = prefs.getString('user_password');
+  final tier = prefs.getString('user_tier');
+  final points = prefs.getInt('user_points');
+
+  if (name != null && email != null && password != null && tier != null && points != null) {
+    _loggedInUser = UserModel(
+      name: name,
+      email: email,
+      password: password,
+      tier: tier,
+      points: points,
+    );
   }
+}
 
-  Future<UserModel?> login(String email, String password) async {
-    // شرط وهمي
-    if (email == "test@oz.com" && password == "123456") {
-      final user = UserModel(
-        name: "Test User",
-        email: email,
-        password: password,
-        tier: "Gold",
-        points: 100,
-      );
-      _loggedInUser = user;
-      await _saveUserToPrefs(user);
-      return user;
-    }
+
+Future<UserModel?> login(String email, String password) async {
+  try {
+    final user = _users.firstWhere(
+      (user) => user.email == email && user.password == password,
+    );
+
+    _loggedInUser = user;
+    await _saveUserToPrefs(user); 
+
+    return user;
+  } catch (_) {
     return null;
   }
+}
 
-  Future<void> registerUser(UserModel user) async {
-    _loggedInUser = user;
-    await _saveUserToPrefs(user);
+
+  bool isEmailTaken(String email) {
+    return _users.any((user) => user.email == email);
+  }
+
+  void registerUser(UserModel user) {
+    _users.add(user);
   }
 
   bool isLoggedIn() => _loggedInUser != null;
@@ -50,14 +58,11 @@ class DummyUserService {
   UserModel? get currentUser => _loggedInUser;
 
   Future<void> logout() async {
-    _loggedInUser = null;
+  
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
 
-  bool isEmailTaken(String email) {
-    return false; 
-  }
 
   Future<void> _saveUserToPrefs(UserModel user) async {
     final prefs = await SharedPreferences.getInstance();

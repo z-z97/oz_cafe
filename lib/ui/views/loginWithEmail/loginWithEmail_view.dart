@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:oz_cofe/ui/custom/CustomTextField.dart';
-import 'package:oz_cofe/ui/custom/custom_button.dart';
+import 'package:oz_cofe/ui/widgets/CustomTextField.dart';
+import 'package:oz_cofe/ui/widgets/custom_button.dart';
 import 'package:oz_cofe/ui/views/loginWithEmail/loginWithEmail_viewmodel.dart';
 import 'package:stacked/stacked.dart';
+
 
 class LoginWithEmailView extends StackedView<LoginWithEmailViewModel> {
   const LoginWithEmailView({super.key});
