@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oz_cofe/ui/widgets/CustomTextField.dart';
+import 'package:oz_cofe/ui/custom/CustomTextField.dart';
 import 'package:oz_cofe/ui/widgets/custom_button.dart';
 import 'package:stacked/stacked.dart';
 

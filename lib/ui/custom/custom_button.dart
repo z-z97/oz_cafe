@@ -49,14 +49,11 @@ class CustomButton extends StatelessWidget {
               leading,
               const SizedBox(width: 12),
             ],
-            Center(
-              child: Text(
-                text,
-                style: TextStyle(
-                   
-                  color: textColor,
-                  fontSize: 16,
-                ),
+            Text(
+              text,
+              style: TextStyle(
+                color: textColor,
+                fontSize: 16,
               ),
             ),
           ],
