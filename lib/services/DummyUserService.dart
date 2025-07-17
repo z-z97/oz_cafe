@@ -7,18 +7,58 @@ class DummyUserService {
 
   List<UserModel> get users => _users;
 
+  Future<void> init() async {
+    final prefs = await SharedPreferences.getInstance();
+    final name = prefs.getString('user_name');
+    await prefs.setString('user_name', "");
+    final email = prefs.getString('user_email');
+    final password = prefs.getString('user_password');
+    final tier = prefs.getString('user_tier');
+    final points = prefs.getInt('user_points');
 
-Future<void> init() async {
+    if (name != null &&
+        email != null &&
+        password != null &&
+        tier != null &&
+        points != null) {
+      _loggedInUser = UserModel(
+        name: name,
+        email: email,
+        password: password,
+        tier: tier,
+        points: points,
+      );
+    }
+  }
+
+  Future<UserModel?> login(String email, String password) async {
+    try {
+      final user = _users.firstWhere(
+        (user) => user.email == email && user.password == password,
+      );
+
+      _loggedInUser = user;
+      await _saveUserToPrefs(user);
+
+      return user;
+    } catch (_) {
+      return null;
+    }
+  }
+Future<UserModel?> getuser() async {
   final prefs = await SharedPreferences.getInstance();
   final name = prefs.getString('user_name');
-     await prefs.setString('user_name', "");
   final email = prefs.getString('user_email');
   final password = prefs.getString('user_password');
   final tier = prefs.getString('user_tier');
   final points = prefs.getInt('user_points');
 
-  if (name != null && email != null && password != null && tier != null && points != null) {
-    _loggedInUser = UserModel(
+  if (name != null &&
+      email != null &&
+      password != null &&
+      tier != null &&
+      points != null) {
+    return UserModel(
       name: name,
       email: email,
       password: password,
@@ -26,24 +66,9 @@ Future<void> init() async {
       points: points,
     );
   }
+
+  return null;
 }
-
-
-Future<UserModel?> login(String email, String password) async {
-  try {
-    final user = _users.firstWhere(
-      (user) => user.email == email && user.password == password,
-    );
-
-    _loggedInUser = user;
-    await _saveUserToPrefs(user); 
-
-    return user;
-  } catch (_) {
-    return null;
-  }
-}
-
 
   bool isEmailTaken(String email) {
     return _users.any((user) => user.email == email);
@@ -58,11 +83,9 @@ Future<UserModel?> login(String email, String password) async {
   UserModel? get currentUser => _loggedInUser;
 
   Future<void> logout() async {
-  
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
-
 
   Future<void> _saveUserToPrefs(UserModel user) async {
     final prefs = await SharedPreferences.getInstance();

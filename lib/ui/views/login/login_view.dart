@@ -18,7 +18,6 @@ class LoginView extends StackedView<LoginViewModel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // الشعار
               Center(
                 child: Image.asset(
                   'assets/images/AppLogo.png',

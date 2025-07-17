@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:oz_cofe/services/DummyUserService.dart';
 
 import 'package:oz_cofe/ui/views/Features/home/home_view.dart';
 import 'package:oz_cofe/ui/views/Features/main_navigation_view.dart';
@@ -25,7 +26,7 @@ import 'package:stacked_services/stacked_services.dart';
   ],
   dependencies: [
      LazySingleton(classType: NavigationService), 
-    
+    LazySingleton(classType: DummyUserService),
     LazySingleton(classType: SnackbarService),
   
   ],

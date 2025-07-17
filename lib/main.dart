@@ -5,7 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await setupLocator(); // مهم لتسجيل الخدمات
+  await setupLocator(); 
   runApp(const MyApp());
 }
 

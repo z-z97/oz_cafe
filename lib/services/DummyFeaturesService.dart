@@ -17,13 +17,25 @@ class DummyData {
       name: "Oz Cafe Seef",
       imageUrl: "assets/images/oz_seef.jpg",
       status: "Open - 9:00am",
-      distance: "430m",
+      distance: "430m", rating: 5, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
     ),
     StoreModel(
       name: "Oz Cafe Muharraq",
       imageUrl: "assets/images/oz_muharraq.jpg",
       status: "Closed - 4:00pm",
-      distance: "630m",
+      distance: "630m", rating: 3, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+    ),
+        StoreModel(
+      name: "Oz Cafe Seef",
+      imageUrl: "assets/images/oz_seef.jpg",
+      status: "Open - 9:00am",
+      distance: "430m", rating: 5, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+    ),
+    StoreModel(
+      name: "Oz Cafe Muharraq",
+      imageUrl: "assets/images/oz_muharraq.jpg",
+      status: "Closed - 4:00pm",
+      distance: "630m", rating: 3, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
     ),
   ];
 
