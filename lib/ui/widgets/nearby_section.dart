@@ -1,31 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:oz_cofe/services/DummyFeaturesService.dart';
+import 'package:oz_cofe/model/StoreModel.dart';
 import 'package:oz_cofe/ui/widgets/cafe_card.dart';
 
 class NearbySection extends StatelessWidget {
-  const NearbySection({super.key});
+  final List<StoreModel> stores;
+  final String title;
+
+  const NearbySection({super.key, required this.stores, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    final stores = DummyData.stores;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          children: const [
-            Expanded(
-              child: Text("Nearby", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          children: [
+             Expanded(
+              child: Text(
+              title,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
             ),
-            Text("See All", style: TextStyle(color: Colors.orange)),
+            GestureDetector(
+              onTap: () {
+              },
+              child: const Text(
+                "See All",
+                style: TextStyle(color: Color(0xFFFF8A00)),
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 12),
         SizedBox(
-          height: 200,
-          child: ListView.builder(
+          height: 210,
+          child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: stores.length,
+            separatorBuilder: (_, __) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               return CafeCard(store: stores[index]);
             },

@@ -8,34 +8,50 @@ class DummyData {
 
 
   static final promos = [
-    PromoModel(title: "Discount up to 5%", description: "Learn more for more info"),
-    PromoModel(title: "Save up to \$1,200", description: "with this pocket"),
+    PromoModel(title: "Discount up to 5%", description: "Learn more for more info", storeIds: ['Seef-id','Muharraq-id'], numberOfVocher: 5),
+    PromoModel(title: "Save up to \$1,200", description: "with this pocket", storeIds: ['Seef2-id', 'Muharraq2-id'], numberOfVocher: 1),
   ];
 
   static final stores = [
     StoreModel(
+      id:'Seef-id',
       name: "Oz Cafe Seef",
       imageUrl: "assets/images/oz_seef.jpg",
-      status: "Open - 9:00am",
-      distance: "430m", rating: 5, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+      status: "Open",
+      distance: "430m",
+       rating: 5, 
+       address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+             openTime: '9:00am', 
+        closTime: '10:00pm',
+
     ),
     StoreModel(
+      id:'Muharraq-id',
       name: "Oz Cafe Muharraq",
       imageUrl: "assets/images/oz_muharraq.jpg",
-      status: "Closed - 4:00pm",
-      distance: "630m", rating: 3, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+      status: "Closed",
+      distance: "630m", rating: 3, 
+      address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+              openTime: '9:00am', 
+        closTime: '11:00pm',
     ),
         StoreModel(
-      name: "Oz Cafe Seef",
+          id:'Seef2-id',
+      name: "Oz Cafe Seef2",
       imageUrl: "assets/images/oz_seef.jpg",
-      status: "Open - 9:00am",
+      status: "Open",
       distance: "430m", rating: 5, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+                 openTime: '9:00am', 
+        closTime: '11:00pm',
     ),
     StoreModel(
-      name: "Oz Cafe Muharraq",
+         id:'Muharraq2-id',
+      name: "Oz Cafe Muharraq2",
       imageUrl: "assets/images/oz_muharraq.jpg",
-      status: "Closed - 4:00pm",
+      status: "Closed",
       distance: "630m", rating: 3, address: "Jl. ZA. Pagar Alam , Bandar Lampung",
+              openTime: '9:00am', 
+        closTime: '11:00pm',
     ),
   ];
 
@@ -55,7 +71,11 @@ class DummyData {
       status: "Order Completed",
     ),
   ];
-
+static List<StoreModel> getStoresForPromo(PromoModel promo) {
+  return DummyData.stores
+      .where((store) => promo.storeIds.contains(store.id))
+      .toList();
+}
   static final profileItems = [
     ProfileMenuItemModel(title: "Shipping Address", icon: "assets/icons/address.png"),
     ProfileMenuItemModel(title: "Membership", icon: "assets/icons/membership.png"),

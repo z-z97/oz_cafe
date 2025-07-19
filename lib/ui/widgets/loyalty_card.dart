@@ -49,7 +49,7 @@ class _LoyaltyCardState extends State<LoyaltyCard> {
               ),
               const Spacer(),
 SizedBox(
-  height: 50, // أو نفس ارتفاع الـ Container
+  height: 50, 
   child: VerticalDivider(
     color: Colors.grey[300],
     thickness: 1,
@@ -65,6 +65,7 @@ SizedBox(
                   const Text('Oz Points', style: TextStyle(color: Colors.grey)),
                   Row(
                     children: [
+                                            Image.asset('assets/images/Vector.png', height: 20, width: 20),
                       Text('${user?.points ?? 0}',
                           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold )),
                           Text(' pts',
