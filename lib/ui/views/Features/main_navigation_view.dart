@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oz_cofe/ui/views/Features/PromoPage/PromoPage_view.dart';
+import 'package:oz_cofe/ui/views/Features/Transaction/Transaction_viwe.dart';
 import 'package:oz_cofe/ui/views/Features/home/home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'main_navigation_viewmodel.dart';
@@ -16,7 +17,7 @@ class MainNavigationView extends StackedView<MainNavigationViewModel> {
     final screens = const [
       HomeView(),
       PromoPage(),
-      // OrdersView(),
+      TransactionPage(),
       // ProfileView(),
     ];
 
