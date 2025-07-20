@@ -85,6 +85,8 @@ Future<UserModel?> getuser() async {
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
+
+
   }
 
   Future<void> _saveUserToPrefs(UserModel user) async {

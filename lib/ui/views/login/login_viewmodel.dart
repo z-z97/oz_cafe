@@ -39,9 +39,9 @@ final _userService = locator<DummyUserService>();
         password: "",
         tier: 'Gold',
         points: 100,
-      ),
-    );
-      _navigationService.navigateToHomeView();
+      ), 
+    );await _userService.login(googleUser.email,"" );
+      _navigationService.replaceWithMainNavigationView();
     } catch (e) {
       _snackbarService.showSnackbar(
         message: "Login failed: $e",
@@ -85,7 +85,7 @@ Future<void> loginWithFacebook() async {
 
 
   void loginWithApple() {
-    _snackbarService.showSnackbar(message: "Logged in with Apple");
+    _snackbarService.showSnackbar(message: "comming soon");
   }
 
   void goToRegister() {

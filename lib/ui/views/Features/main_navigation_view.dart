@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oz_cofe/ui/views/Features/PromoPage/PromoPage_view.dart';
+import 'package:oz_cofe/ui/views/Features/Profile/Profile_viwe.dart';
 import 'package:oz_cofe/ui/views/Features/Transaction/Transaction_viwe.dart';
 import 'package:oz_cofe/ui/views/Features/home/home_view.dart';
 import 'package:stacked/stacked.dart';
@@ -18,7 +19,7 @@ class MainNavigationView extends StackedView<MainNavigationViewModel> {
       HomeView(),
       PromoPage(),
       TransactionPage(),
-      // ProfileView(),
+      ProfilePage()
     ];
 
 return Scaffold(
