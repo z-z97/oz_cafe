@@ -13,7 +13,7 @@ class PromoViewModel extends BaseViewModel {
         .where((store) => promo.storeIds.contains(store.id))
         .toList();
   }
-   // late Future<UserModel?> _userFuture;
+
 
   
     Future<UserModel?> userFuture = DummyUserService().getuser();

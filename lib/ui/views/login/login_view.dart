@@ -41,7 +41,6 @@ class LoginView extends StackedView<LoginViewModel> {
               ),
               const SizedBox(height: 12),
 
-              // Google Button
               CustomButton(
                 text: 'Google',
                 assetIconPath: 'assets/images/google.png',
@@ -51,7 +50,6 @@ class LoginView extends StackedView<LoginViewModel> {
               ),
               const SizedBox(height: 12),
 
-              // Facebook Button
               CustomButton(
                 text: 'Facebook',
                 assetIconPath: 'assets/images/facebook.png',
@@ -61,7 +59,6 @@ class LoginView extends StackedView<LoginViewModel> {
               ),
               const SizedBox(height: 12),
 
-              // Apple Button
               CustomButton(
                 text: 'Apple',
                 assetIconPath: 'assets/images/apple.png',
@@ -71,7 +68,6 @@ class LoginView extends StackedView<LoginViewModel> {
               ),
               const SizedBox(height: 24),
 
-              // Don't have an account? Register
               TextButton(
                 onPressed: viewModel.goToRegister,
                 child: const Text.rich(

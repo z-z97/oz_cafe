@@ -27,7 +27,6 @@ class TransactionCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Cafe name + date
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -46,14 +45,12 @@ class TransactionCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
 
-          // Order name
           Text(
             orderTitle.length > 40 ? '${orderTitle.substring(0, 40)}...' : orderTitle,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
 
-          // Pickup method
           Row(
             children: [
               const Icon(Icons.storefront_outlined, size: 16, color: Colors.teal),
@@ -63,14 +60,12 @@ class TransactionCard extends StatelessWidget {
           ),
           const SizedBox(height: 6),
 
-          // Total menu and price
           Text(
             'Total ${transaction.totalMenu} Menu   •   BHD${transaction.totalPrice}',
             style: const TextStyle(color: Colors.grey),
           ),
           const SizedBox(height: 6),
 
-          // Status + button
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

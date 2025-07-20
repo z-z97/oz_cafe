@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:oz_cofe/services/DummyUserService.dart';
-import 'package:oz_cofe/ui/widgets/logout_button.dart';
 
 class ProfileMenu extends StatelessWidget {
   @override
@@ -32,7 +31,6 @@ class MenuItem extends StatelessWidget {
       title: Text(title),
       onTap: () {
 
-        // Navigatei to the respective page
       },
     );
   }

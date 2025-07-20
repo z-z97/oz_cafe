@@ -27,7 +27,6 @@ class TransactionPage extends StackedView<TransactionViewModel> {
         children: [
           const SizedBox(height: 8),
 
-          // Tab Bar
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             padding: const EdgeInsets.all(4),
@@ -43,7 +42,6 @@ class TransactionPage extends StackedView<TransactionViewModel> {
             ),
           ),
 
-          // Transactions List
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16),

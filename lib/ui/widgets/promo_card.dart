@@ -17,9 +17,8 @@ class PromoCard extends StatelessWidget {
       children: [
         Stack(
           children: [
-            // Shadow behind clipped circle
             Positioned(
-              right: 70 - 15, // Adjust position based on clipper settings
+              right: 70 - 15, 
               top: 20,
               bottom: 20,
               child: Container(
@@ -38,7 +37,6 @@ class PromoCard extends StatelessWidget {
               ),
             ),
 
-            // Main clipped promo card
             ClipPath(
               clipper: DolDurmaClipper(right: 70, holeRadius: 30),
               child: Container(
@@ -56,7 +54,6 @@ class PromoCard extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    // Icon with light circle background
                     Container(
                       width: 48,
                       height: 48,
@@ -70,7 +67,6 @@ class PromoCard extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
 
-                    // Title and Description
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,7 +90,6 @@ class PromoCard extends StatelessWidget {
                       ),
                     ),
 
-                    // Dashed Vertical Divider
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 12),
                       height: 48,
@@ -104,7 +99,6 @@ class PromoCard extends StatelessWidget {
                       ),
                     ),
 
-                    // Voucher Count
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [

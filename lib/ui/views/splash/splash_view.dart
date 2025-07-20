@@ -8,7 +8,7 @@ class SplashView extends StackedView<SplashViewModel> {
   @override
   Widget builder(BuildContext context, SplashViewModel viewModel, Widget? child) {
     return Scaffold(
-      backgroundColor: const Color(0xFF00657D), // اللون الأزرق الداكن الموجود بالصورة
+      backgroundColor: const Color(0xFF00657D),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
